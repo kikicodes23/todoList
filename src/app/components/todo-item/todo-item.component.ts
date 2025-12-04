@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Task } from '../../interfaces/task.interface';
 
 @Component({
     selector: 'app-todo-item',
@@ -8,5 +9,7 @@ import { CommonModule } from '@angular/common';
     templateUrl: './todo-item.component.html'
 })
 export class TodoItemComponent {
-    @Input() title: string = '';
+    task = input.required<Task>();
+    toggle = output<void>();
+    remove = output<void>();
 }

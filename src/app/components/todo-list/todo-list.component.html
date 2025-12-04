@@ -1,6 +1,10 @@
 <div class="space-y-1">
-    <!-- Mock data for design -->
-    <app-todo-item title="Complete the technical test"></app-todo-item>
-    <app-todo-item title="Review Angular 21 features"></app-todo-item>
-    <app-todo-item title="Design a beautiful UI"></app-todo-item>
+    @for (task of todoService.tasks(); track task.id) {
+    <app-todo-item [task]="task" (toggle)="todoService.toggleTask(task.id)"
+        (remove)="todoService.removeTask(task.id)"></app-todo-item>
+    } @empty {
+    <div class="text-center py-12 text-gray-400">
+        <p>No tasks yet. Add one above!</p>
+    </div>
+    }
 </div>
