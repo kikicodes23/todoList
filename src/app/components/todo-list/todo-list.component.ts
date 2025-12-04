@@ -16,20 +16,32 @@ export class TodoListComponent {
     tasks = input.required<Task[]>();
 
     taskToDelete = signal<number | null>(null);
+    isClearingAll = signal(false);
 
     initiateDelete(id: number): void {
         this.taskToDelete.set(id);
     }
 
+    initiateClearAll(): void {
+        this.isClearingAll.set(true);
+    }
+
     confirmDelete(): void {
-        const id = this.taskToDelete();
-        if (id !== null) {
-            this.todoService.removeTask(id);
-            this.taskToDelete.set(null);
+        if (this.isClearingAll()) {
+            const ids = this.tasks().map(t => t.id);
+            this.todoService.removeTasks(ids);
+            this.isClearingAll.set(false);
+        } else {
+            const id = this.taskToDelete();
+            if (id !== null) {
+                this.todoService.removeTask(id);
+                this.taskToDelete.set(null);
+            }
         }
     }
 
     cancelDelete(): void {
         this.taskToDelete.set(null);
+        this.isClearingAll.set(false);
     }
 }

@@ -36,6 +36,11 @@ export class TodoService {
         this.tasks.update(tasks => tasks.filter(task => task.id !== id));
     }
 
+    removeTasks(ids: number[]): void {
+        const idsSet = new Set(ids);
+        this.tasks.update(tasks => tasks.filter(task => !idsSet.has(task.id)));
+    }
+
     toggleTask(id: number): void {
         this.tasks.update(tasks =>
             tasks.map(task =>
