@@ -1,9 +1,10 @@
-<nav>
+<nav class="flex flex-col justify-center items-center gap-2">
   <div>
-    <h1>TODO List</h1>
+    <h1 class="font-bold text-xl">TODO  LIST</h1>
   </div>
-  <ul class="flex flex-row gap-4">
-    <li><a routerLink="/">Tasks</a></li>
-    <li><a routerLink="/completed">Completed</a></li>
-  </ul>
+
+  <mat-tab-group>
+    <mat-tab label="Tasks" routerLink="/"></mat-tab>
+    <mat-tab label="Completed" routerLink="/completed"></mat-tab>
+  </mat-tab-group>
 </nav>
