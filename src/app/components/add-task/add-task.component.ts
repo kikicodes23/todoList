@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
+import { Task } from "../task/task";
+
 @Component({
   selector: 'app-add-task',
+  imports: [Task],
   templateUrl: './add-task.component.html',
-  imports: [MatButtonModule]
 })
 export class AddTask {
-
+  
 }
