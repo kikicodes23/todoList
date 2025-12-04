@@ -1,7 +1,7 @@
 <div class="space-y-1">
     @for (task of tasks(); track task.id) {
-    <app-todo-item [task]="task" (toggle)="todoService.toggleTask(task.id)"
-        (remove)="todoService.removeTask(task.id)"></app-todo-item>
+    <app-todo-item [task]="task" (toggle)="todoService.toggleTask(task.id)" (remove)="todoService.removeTask(task.id)"
+        (update)="todoService.updateTask(task.id, $event)"></app-todo-item>
     } @empty {
     <div class="text-center py-12 text-gray-400">
         <p>No tasks yet. Add one above!</p>

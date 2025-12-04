@@ -43,4 +43,12 @@ export class TodoService {
             )
         );
     }
+
+    updateTask(id: number, title: string): void {
+        this.tasks.update(tasks =>
+            tasks.map(task =>
+                task.id === id ? { ...task, title } : task
+            )
+        );
+    }
 }
