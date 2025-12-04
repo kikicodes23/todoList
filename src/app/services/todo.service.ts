@@ -1,4 +1,4 @@
-import { Injectable, signal, effect, inject } from '@angular/core';
+import { Injectable, signal, effect, inject, computed } from '@angular/core';
 import { Task } from '../interfaces/task.interface';
 import { LocalStorageService } from './local-storage.service';
 
@@ -10,6 +10,8 @@ export class TodoService {
     private readonly STORAGE_KEY = 'todo-list-tasks';
 
     tasks = signal<Task[]>(this.loadTasks());
+    activeTasks = computed(() => this.tasks().filter(task => !task.completed));
+    completedTasks = computed(() => this.tasks().filter(task => task.completed));
 
     constructor() {
         effect(() => {
