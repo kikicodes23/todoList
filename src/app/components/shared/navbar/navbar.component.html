@@ -1,9 +1,31 @@
-<nav>
-  <div>
-    <h1>TODO List</h1>
+<header class="w-full max-w-3xl mx-auto pt-12 pb-8 px-6">
+  <div class="flex flex-col items-center justify-center space-y-6">
+    <!-- Logo section -->
+    <div class="text-center space-y-2">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-violet-100 text-violet-600 mb-4">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+          </path>
+        </svg>
+      </div>
+      <h1 class="text-4xl font-bold tracking-tight text-gray-900">
+        Todo List
+      </h1>
+      <p class="text-gray-500 font-medium text-lg">Kikicodes' todo-list</p>
+    </div>
+
+    <!-- Navigation tabs -->
+    <nav class="flex items-center space-x-2 bg-white p-1 rounded-xl border border-gray-200 shadow-sm">
+      <a routerLink="/" routerLinkActive="bg-violet-50 text-violet-700 border-violet-100"
+        [routerLinkActiveOptions]="{exact: true}"
+        class="px-6 py-2 rounded-lg text-sm font-semibold text-gray-600 border border-transparent hover:bg-gray-50 transition-colors duration-200">
+        Current Tasks
+      </a>
+      <a routerLink="/completed" routerLinkActive="bg-violet-50 text-violet-700 border-violet-100"
+        class="px-6 py-2 rounded-lg text-sm font-semibold text-gray-600 border border-transparent hover:bg-gray-50 transition-colors duration-200">
+        Completed
+      </a>
+    </nav>
   </div>
-  <ul class="flex flex-row gap-4">
-    <li><a routerLink="/">Tasks</a></li>
-    <li><a routerLink="/completed">Completed</a></li>
-  </ul>
-</nav>
+</header>
