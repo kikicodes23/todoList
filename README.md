@@ -1,6 +1,8 @@
 # Todo List App
 
-A modern, responsive task management application built with Angular and Tailwind CSS.
+A modern, responsive task management application built with Angular and Tailwind CSS. You can access it through the following link:
+
+[https://kikilist.vercel.app](https://kikilist.vercel.app)
 
 ## Features
 
